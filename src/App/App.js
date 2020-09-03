@@ -4,7 +4,10 @@ import StackGrid from 'react-stack-grid';
 import './App.sass';
 
 import { Header } from '../components';
-import { Hyperlink } from '../components/cards';
+import { 
+  Hyperlink,
+  Search
+} from '../components/cards';
 
 function App() {
   return (
