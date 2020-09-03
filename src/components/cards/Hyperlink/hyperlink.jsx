@@ -14,14 +14,15 @@ class Hyperlink extends React.Component {
   
   render() {  
     return(
+      
       <div className="card">
 
         <header className="card-header">
           <p className="card-header-title">
-            {this.state.title}
+            Link: {this.state.title}
           </p>
         </header>
-
+        
         <div className="card-content">
           <div className="content">
             {this.state.url}
@@ -32,7 +33,8 @@ class Hyperlink extends React.Component {
           <a href={this.state.url} className="card-footer-item">{`Visit ${this.state.title}`}</a>
         </footer>
 
-      </div>    
+      </div>
+
     );
     
   }

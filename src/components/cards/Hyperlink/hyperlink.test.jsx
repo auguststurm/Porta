@@ -16,7 +16,7 @@ describe('Hyperlink component', () => {
   
   it('should have a title', () => {
     const { getByText } = component();
-    expect(getByText('Apple')).toBeInTheDocument();
+    expect(getByText('Link: Apple')).toBeInTheDocument();
   });
   
   it('should have content with url', () => {
