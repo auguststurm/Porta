@@ -14,6 +14,32 @@ function Hamburger(props) {
   );
 }
 
+function NavBarStart(props) {
+  
+  const loggedOut = '';
+  
+  const loggedIn = <div className="navbar-start">
+    <a className="navbar-item" href="#documentation">documentation</a>
+    <div className="navbar-item has-dropdown is-hoverable">
+      <a className="navbar-link" href="#more">more</a>
+      <div className="navbar-dropdown">
+        <a className="navbar-item" href="#more-about">about</a>
+        <a className="navbar-item" href="#more-jobs">jobs</a>
+        <a className="navbar-item" href="#more-contact">contact</a>
+        <hr className="navbar-divider" />
+        <a className="navbar-item" href="#more-report-issue">report an issue</a>
+      </div>
+    </div>
+  </div>
+  
+  return(
+    <div className="navbar-start">
+      {(props.userLoggedIn) ? loggedIn : loggedOut }
+    </div>
+  )
+  
+}
+
 function NavBarEnd(props) {
   
   const loggedOut = <div className="navbar-item">
@@ -36,7 +62,6 @@ function NavBarEnd(props) {
   );
   
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -89,19 +114,9 @@ class Header extends React.Component {
 
         <div id="main-menu" className={`navbar-menu ${(this.state.hamburgerActive) ? 'is-active' : ''}`}>
 
-          <div className="navbar-start">
-            <a className="navbar-item" href="#documentation">documentation</a>
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link" href="#more">more</a>
-              <div className="navbar-dropdown">
-                <a className="navbar-item" href="#more-about">about</a>
-                <a className="navbar-item" href="#more-jobs">jobs</a>
-                <a className="navbar-item" href="#more-contact">contact</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item" href="#more-report-issue">report an issue</a>
-              </div>
-            </div>
-          </div>
+          <NavBarStart
+            userLoggedIn={this.state.userLoggedIn}
+          />
 
           <NavBarEnd 
             userLoggedIn={this.state.userLoggedIn} 
