@@ -16,11 +16,16 @@ describe('Search component', () => {
   it('should have a title', () => {
     const { getByText } = component();
     expect(getByText('Search: Amazon')).toBeInTheDocument();
-  })
+  });
   
   it('should have an input label', () => {
     const { getByText } = component();
     expect(getByText('Keywords:')).toBeInTheDocument();
-  })
+  });
+
+  it('should have prefix displayed', () => {
+    const { getByText } = component({ prefix: 'Laptop'});
+    expect(getByText('Laptop')).toBeInTheDocument();
+  });
   
 });

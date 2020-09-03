@@ -16,7 +16,11 @@ function App() {
 
       <div className="container is-fluid">
 
-        <StackGrid columnWidth={350}>
+        <StackGrid 
+          columnWidth={350}
+          gutterWidth={20}
+          gutterHeight={20}
+        >
 
           <Hyperlink
             url="https://news.ycombinator.com"
