@@ -7,7 +7,7 @@ function CardTitle(props) {
   
   let output = '';
   
-  if (props.prefix == '') {
+  if (props.prefix === '') {
     output = <p className="card-header-title">Search: {props.title}</p>
   } else {
     output = <p className="card-header-title">{props.title} » {props.prefix}</p>
@@ -29,7 +29,7 @@ class Search extends React.Component {
   }
   
   handleSearchClick = () => {
-    const sanitizedPrefix = (this.state.prefix != '') ? this.state.prefix.replace(/\s/g, '+') + '+' : '';
+    const sanitizedPrefix = (this.state.prefix !== '') ? this.state.prefix.replace(/\s/g, '+') + '+' : '';
     const sanitizedKeywords = this.state.keywords.replace(/\s/g, '+');
     const fullUrl = `${this.state.url}${sanitizedPrefix}${sanitizedKeywords}`;
     window.location.href = fullUrl;
