@@ -21,13 +21,13 @@ function NavBarStart(props) {
   const loggedIn = <div className="navbar-start">
     <a className="navbar-item" href="#documentation">documentation</a>
     <div className="navbar-item has-dropdown is-hoverable">
-      <a className="navbar-link" href="#more">more</a>
+      <a className="navbar-link" href="#more"><i className="fas fa-user"></i></a>
       <div className="navbar-dropdown">
-        <a className="navbar-item" href="#more-about">about</a>
-        <a className="navbar-item" href="#more-jobs">jobs</a>
-        <a className="navbar-item" href="#more-contact">contact</a>
+        <a className="navbar-item" href="#more-about">Profile</a>
+        <a className="navbar-item" href="#more-jobs">Settings</a>
+        <a className="navbar-item" href="#more-contact">Keys</a>
         <hr className="navbar-divider" />
-        <a className="navbar-item" href="#more-report-issue">report an issue</a>
+        <a className="navbar-item" href="#more-report-issue">Report an issue</a>
       </div>
     </div>
   </div>
@@ -44,14 +44,14 @@ function NavBarEnd(props) {
   
   const loggedOut = <div className="navbar-item">
     <div className="buttons">
-      <a className="button is-info is-small" href="#sign-up" onClick={props.onSignUpClick}><strong>Sign up</strong></a>
-      <a className="button is-light is-small is-outlined" href="#log-in" onClick={props.onLogInClick}>Log in</a>
+      <div className="button is-info is-small" onClick={props.onSignUpClick}><strong>Sign up</strong></div>
+      <div className="button is-light is-small is-outlined" onClick={props.onLogInClick}>Log in</div>
     </div>
   </div>
   
   const loggedIn = <div className="navbar-item">
     <div className="buttons">
-      <a className="button is-light is-small is-outlined" href="#log-out" onClick={props.onLogOutClick}>Log out</a>
+      <div className="button is-light is-small is-outlined" onClick={props.onLogOutClick}>Log out</div>
     </div>
   </div>
   
@@ -71,7 +71,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       hamburgerActive: false,
-      userLoggedIn: props.userLoggedIn || false,
+      userLoggedIn: props.userLoggedIn,
     };  
   }
 
@@ -83,15 +83,17 @@ class Header extends React.Component {
   };
   
   handleSignUpClick = () => {
-    
+    this.props.signUpHandler(true);
   };
   
   handleLogInClick = () => {
     this.setState({ userLoggedIn: true });
+    this.props.logInHandler(true);
   };
   
   handleLogOutClick = () => {
     this.setState({ userLoggedIn: false });
+    this.props.logOutHandler(false);
   };
   
   /////////////////////////////////////////////////////////////////////////////
