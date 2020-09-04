@@ -10,11 +10,9 @@ const component = (customProps = {}) => {
 
 describe('Header', () => {
   
-  test('should have site branding', () => {
-    
+  it('should have site branding', () => {
     const { getByText } = component();
     expect(getByText('PORTA')).toBeInTheDocument();
-    
   });
   
 });
