@@ -2,6 +2,20 @@ import React from 'react';
 
 import './search.sass';
 
+
+function CardTitle(props) {
+  
+  let output = '';
+  
+  if (props.prefix == '') {
+    output = <p className="card-header-title">Search: {props.title}</p>
+  } else {
+    output = <p className="card-header-title">{props.title} » {props.prefix}</p>
+  }
+  return output;
+}
+
+
 class Search extends React.Component {
   
   constructor(props) {
@@ -37,23 +51,14 @@ class Search extends React.Component {
     
     return(
       
-      
       <div className="card">
 
         <header className="card-header">
-          <p className="card-header-title">
-            Search: {this.state.title}
-          </p>
+          <CardTitle title={this.state.title} prefix={this.state.prefix} />
         </header>
 
         <div className="card-content">
           <div className="content">
-
-            {this.state.prefix &&
-
-              <p>{this.state.prefix}</p>
-
-            }
 
             <label htmlFor={`search_${this.state.title}`}>Keywords:</label>
             <input id={`search_${this.state.title}`} value={this.state.keywords} onChange={this.handleKeywordsUpdate} onKeyPress={this.handleReturnKeyPressed} />

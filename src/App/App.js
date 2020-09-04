@@ -16,14 +16,15 @@ function App() {
 
       <div className="container is-fluid">
 
-        <StackGrid 
-          columnWidth={350}
-          gutterWidth={20}
-          gutterHeight={20}
-        >
+        <StackGrid columnWidth={350} gutterWidth={20} gutterHeight={20}>
 
           <Hyperlink
             url="https://news.ycombinator.com"
+            title="Hacker News"
+          />
+
+          <Search
+            url="https://hn.algolia.com/?q="
             title="Hacker News"
           />
 
