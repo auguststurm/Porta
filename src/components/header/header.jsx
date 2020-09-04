@@ -19,17 +19,7 @@ function NavBarStart(props) {
   const loggedOut = '';
   
   const loggedIn = <div className="navbar-start">
-    <a className="navbar-item" href="#documentation">documentation</a>
-    <div className="navbar-item has-dropdown is-hoverable">
-      <a className="navbar-link" href="#more"><i className="fas fa-user"></i></a>
-      <div className="navbar-dropdown">
-        <a className="navbar-item" href="#more-about">Profile</a>
-        <a className="navbar-item" href="#more-jobs">Settings</a>
-        <a className="navbar-item" href="#more-contact">Keys</a>
-        <hr className="navbar-divider" />
-        <a className="navbar-item" href="#more-report-issue">Report an issue</a>
-      </div>
-    </div>
+    {/* <a className="navbar-item" href="#documentation">documentation</a> */}
   </div>
   
   return(
@@ -49,7 +39,20 @@ function NavBarEnd(props) {
     </div>
   </div>
   
-  const loggedIn = <div className="navbar-item">
+  const loggedIn = 
+  <div className="navbar-item">
+
+    <div className="navbar-item has-dropdown is-hoverable">
+      <a className="navbar-link" href="#more"><i className="fas fa-user"></i></a>
+      <div className="navbar-dropdown is-right">
+        <a className="navbar-item" href="#more-about">Profile</a>
+        <a className="navbar-item" href="#more-jobs">Settings</a>
+        <a className="navbar-item" href="#more-contact">Keys</a>
+        <hr className="navbar-divider" />
+        <a className="navbar-item" href="#more-report-issue">Report an issue</a>
+      </div>
+    </div>
+
     <div className="buttons">
       <div className="button is-light is-small is-outlined" onClick={props.onLogOutClick}>Log out</div>
     </div>
