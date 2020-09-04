@@ -25,7 +25,7 @@ describe('Search component', () => {
 
   it('should have prefix displayed', () => {
     const { getByText } = component({ prefix: 'Laptop'});
-    expect(getByText('Laptop')).toBeInTheDocument();
+    expect(getByText('Amazon » Laptop')).toBeInTheDocument();
   });
   
 });
