@@ -67,7 +67,7 @@ class Search extends React.Component {
         </div>
 
         <footer className="card-footer">
-          <a href={`#search_button_${this.state.title}`} className="card-footer-item" onClick={this.handleSearchClick}>{`Search ${this.state.title}`}</a>
+          <div className="card-footer-item" onClick={this.handleSearchClick}>{`Search ${this.state.title}`}</div>
         </footer>
 
       </div>
