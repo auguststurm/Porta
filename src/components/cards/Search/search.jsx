@@ -61,7 +61,7 @@ class Search extends React.Component {
           <div className="content">
 
             <label htmlFor={`search_${this.state.title}`}>Keywords:</label>
-            <input id={`search_${this.state.title}`} value={this.state.keywords} onChange={this.handleKeywordsUpdate} onKeyPress={this.handleReturnKeyPressed} />
+            <input id={`search_${this.state.title}_${this.state.prefix}`} value={this.state.keywords} onChange={this.handleKeywordsUpdate} onKeyPress={this.handleReturnKeyPressed} />
 
           </div>
         </div>

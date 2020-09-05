@@ -22,11 +22,13 @@ const portaType = {
 function PortaCards(props)
 {
   let portaCards = props.portas.map((porta, portaIndex) => {
+    let output;
     if (porta.type === portaType.hyperlink) {
-      return <Hyperlink key={portaIndex} url={porta.url} title={porta.title} />
+      output = <Hyperlink key={portaIndex} url={porta.url} title={porta.title} />
     } else if (porta.type === portaType.search) {
-      return <Search key={portaIndex} url={porta.url} prefix={porta.prefix || ''} title={porta.title} />
+      output = <Search key={portaIndex} url={porta.url} prefix={porta.prefix || ''} title={porta.title} />
     }
+    return output;
   });
   
   let portaAddButton = (props.userLoggedIn === false) ? '' : <button className="button is-large">
@@ -41,21 +43,19 @@ function PortaCards(props)
   </StackGrid>;
 }
 
-function SignUpModal(props)
-{
-  let style = (props.signUpModalActive) ? 'modal is-active' : 'modal is-dark';
-  
-  let output = <div className={style}>
-    <div className="modal-background is-dark"></div>
-    <div className="modal-content">
-
-    </div>
-    <button className="modal-close is-large" aria-label="close" onClick={props.handleClose}></button>
-  </div>
-  
-  return output;
-  
-}
+// function SignUpModal(props)
+// {
+//   let style = (props.signUpModalActive) ? 'modal is-active' : 'modal is-dark';
+// 
+//   let output = <div className={style}>
+//     <div className="modal-background is-dark"></div>
+//     <div className="modal-content">
+// 
+//     </div>
+//     <button className="modal-close is-large" aria-label="close" onClick={props.handleClose}></button>
+//   </div>
+//   return output;
+// }
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -138,7 +138,7 @@ class App extends React.Component {
           <PortaCards portas={this.state.portas} userLoggedIn={this.state.userLoggedIn} />
         </div>
 
-        <SignUpModal signUpModalActive={this.state.signUpModalActive} handleClose={this.handleSignUpModalClose} />
+        {/* <SignUpModal signUpModalActive={this.state.signUpModalActive} handleClose={this.handleSignUpModalClose} /> */}
 
       </div>
 
